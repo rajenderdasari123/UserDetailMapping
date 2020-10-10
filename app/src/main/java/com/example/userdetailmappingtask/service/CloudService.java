@@ -5,6 +5,9 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Class that handles  Retrofit Call.
+ */
 public class CloudService {
   private static Retrofit retrofit = null;
   private static final String BASE_URL = "http://13.127.95.246:7000/marketing/";
@@ -12,6 +15,11 @@ public class CloudService {
   private CloudService() {
   }
 
+  /**
+   * Creates Retrofit instance.
+   *
+   * @return {@link Retrofit}.
+   */
   public static synchronized Retrofit getClient() {
     if (retrofit == null) {
       retrofit = new Retrofit.Builder()
@@ -19,7 +27,6 @@ public class CloudService {
           .addConverterFactory(GsonConverterFactory.create())
           .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
           .build();
-
     }
     return retrofit;
   }

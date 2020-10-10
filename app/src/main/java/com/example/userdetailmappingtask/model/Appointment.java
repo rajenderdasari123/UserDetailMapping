@@ -38,7 +38,6 @@ public class Appointment {
   }
 
 
-  // Getter Methods
   public float getStatus_code() {
     return status_code;
   }
@@ -51,7 +50,6 @@ public class Appointment {
     return status;
   }
 
-  // Setter Methods
 
   public void setStatus_code(float status_code) {
     this.status_code = status_code;

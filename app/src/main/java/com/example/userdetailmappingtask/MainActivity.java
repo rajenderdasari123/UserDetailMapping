@@ -1,22 +1,26 @@
 package com.example.userdetailmappingtask;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
 import android.os.Bundle;
 
 import com.example.userdetailmappingtask.databinding.ActivityMainBinding;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 
 import static com.example.userdetailmappingtask.BR.mainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-  private  MainViewModel mMainViewModel;
+  private MainViewModel mMainViewModel;
 
+  /**
+   * Called when the activity is first created. This is where you should do all of your normal
+   * static set up: create views, bind data to lists, etc. This method also provides you with a
+   * Bundle containing the activity's previously frozen state, if there was one.
+   *
+   * @param savedInstanceState-{@link Bundle}.
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

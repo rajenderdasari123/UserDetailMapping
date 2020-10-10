@@ -1,60 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:orientation="vertical"
-    app:cardCornerRadius="2dp"
-    app:cardElevation="4dp"
-    card_view:cardBackgroundColor="#CACDCC">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <data>
+
+    <variable
+        name="employeeViewModel"
+        type="com.example.userdetailmappingtask.employee.EmployeeViewModel" />
+
+    <variable
+        name="position"
+        type="Integer" />
+  </data>
+
+  <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/tools"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:padding="10dp"
-      android:background="#CACDCC">
+      android:layout_margin="@dimen/dimen_10dp"
+      android:orientation="vertical"
+      app:cardCornerRadius="@dimen/dimen_2dp"
+      app:cardElevation="@dimen/dimen_4dp"
+      card_view:cardBackgroundColor="@color/card_bg">
 
-    <TextView
-        android:id="@+id/tv_institute_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="2dp"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/card_bg"
+        android:padding="@dimen/dimen_10dp">
 
-    <TextView
-        android:id="@+id/tv_poc_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_institute_name" />
 
-    <TextView
-        android:id="@+id/tv_employee_id"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_poc_name" />
+      <TextView
+          android:id="@+id/tv_institute_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen_5dp"
+          android:layout_marginTop="@dimen/dimen_2dp"
+          android:text="@{employeeViewModel.getUnassignedDetails(position).getInstitution_Name()}"
+          android:textSize="@dimen/dimen_16dp"
+          android:textColor="@color/tv_color"
+          android:fontFamily="sans-serif-medium"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_location"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="13dp"
-        android:background="@drawable/locationicon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_employee_id"
-        app:layout_constraintTop_toBottomOf="@id/tv_poc_name" />
+      <TextView
+          android:id="@+id/tv_poc_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen_5dp"
+          android:layout_marginTop="@dimen/dimen_3dp"
+          android:text="@{employeeViewModel.getUnassignedDetails(position).getPOC_Name()}"
+          android:textSize="@dimen/dimen_16dp"
+          android:textColor="@color/tv_color"
+          android:fontFamily="sans-serif-medium"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_institute_name" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+      <TextView
+          android:id="@+id/tv_employee_id"
+          android:layout_width="@dimen/dimen_270dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen_5dp"
+          android:layout_marginTop="@dimen/dimen_3dp"
+          android:text="@{employeeViewModel.getUnassignedDetails(position).getCustom_appointment_id()}"
+          android:textSize="@dimen/dimen_16dp"
+          android:textColor="@color/tv_color"
+          android:fontFamily="sans-serif-medium"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_poc_name" />
+
+      <ImageView
+          android:id="@+id/img_location"
+          android:layout_width="@dimen/dimen_20dp"
+          android:layout_height="@dimen/dimen_20dp"
+          android:layout_marginStart="@dimen/dimen_16dp"
+          android:background="@drawable/locationicon"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@id/tv_employee_id"
+          app:layout_constraintTop_toBottomOf="@id/tv_poc_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+</layout>

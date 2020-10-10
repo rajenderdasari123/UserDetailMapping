@@ -28,8 +28,13 @@ public class CloudManager {
     return mCloudManager;
   }
 
-  public Single<Appointment> getResults(){
-   return mCloudApi.get_booking_appointment_list("VI020PE0016","All","Employee","2020-07-25").subscribeOn(Schedulers.io())
-       .observeOn(AndroidSchedulers.mainThread());
+  /**
+   * Api Call to getData From the Cloud.
+   *
+   * @return {@link Single<Appointment>}
+   */
+  public Single<Appointment> getData() {
+    return mCloudApi.get_booking_appointment_list("VI020PE0016", "All", "Employee", "2020-07-25").subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread());
   }
 }

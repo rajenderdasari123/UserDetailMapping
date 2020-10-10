@@ -1,9 +1,7 @@
 package com.example.userdetailmappingtask.location;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +15,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import static com.example.userdetailmappingtask.constant.EmployeeConstant.TAG_ADDRESS;
+
 public class MapsFragment extends Fragment {
+
+  private String mAddress;
+  private GoogleMap mGoogleMap;
 
   private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -32,9 +42,8 @@ public class MapsFragment extends Fragment {
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-      LatLng sydney = new LatLng(-34, 151);
-      googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-      googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+      mGoogleMap = googleMap;
+      getLocationFromAddress(mAddress);
     }
   };
 
@@ -53,6 +62,35 @@ public class MapsFragment extends Fragment {
         (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
     if (mapFragment != null) {
       mapFragment.getMapAsync(callback);
+    }
+    if (requireArguments().getString(TAG_ADDRESS) != null) {
+      mAddress = requireArguments().getString(TAG_ADDRESS);
+    }
+  }
+
+  /**
+   * Get searched location points from address and plot/update on map.
+   *
+   * @param strAddress Address/Location String
+   */
+  public void getLocationFromAddress(String strAddress) {
+    Geocoder coder = new Geocoder(getContext());
+    List<Address> address;
+
+    try {
+      address = coder.getFromLocationName(strAddress, 5);
+      if (address == null) {
+        return;
+      }
+
+      Address location = address.get(0);
+      LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+      mGoogleMap.addMarker(new MarkerOptions().position(latLng).title("Location"));
+      mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+      mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 }
