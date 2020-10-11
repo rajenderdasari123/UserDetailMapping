@@ -25,4 +25,5 @@ task clean(type: Delete) {
 
 ext{
   nav_version = "2.3.0"
+  fragmentTestVersion = '1.1.0-beta01'
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import io.reactivex.disposables.Disposable;
@@ -80,7 +81,7 @@ public class EmployeeViewModel extends AndroidViewModel {
   /**
    * Sets appointment list for adapter.
    */
-  private void setAppointmentList() {
+  public void setAppointmentList() {
     mAppointmentAdapter.setAppointmentList(mUnassignedList);
     mAppointmentAdapter.notifyDataSetChanged();
   }
@@ -119,6 +120,11 @@ public class EmployeeViewModel extends AndroidViewModel {
     if (mDisposable != null) {
       mDisposable.dispose();
     }
+  }
+
+  @VisibleForTesting
+  public void setAdapterList(List<Unassigned> detailsList) {
+    mUnassignedList = detailsList;
   }
 
 }
