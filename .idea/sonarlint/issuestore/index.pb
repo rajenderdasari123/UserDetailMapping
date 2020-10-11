@@ -5,14 +5,8 @@ z
 Japp/src/main/java/com/example/userdetailmappingtask/utils/NetworkUtil.java,7\0\707888e517b7c64121abd1486fdb28af98cb7677
 v
 Fapp/src/main/java/com/example/userdetailmappingtask/MainViewModel.java,2\c\2ce6c6d0e25bc6bf722a9d5ece04af3ede640f19
-]
--app/src/main/res/layout/fragment_employee.xml,4\0\4017e6806aedfc4c698a7abffb4fb5b3d0c47443
-U
-%app/src/main/res/layout/list_item.xml,0\e\0e2dbde10fa21a69e5da23f2681513bb29e1a4c4
 R
 "app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
-R
-"app/src/main/res/values/styles.xml,f\7\f79cc2688e29fcbc286fda14ae07b27c9e83690f
 ‚
 Rapp/src/main/java/com/example/userdetailmappingtask/constant/EmployeeConstant.java,c\5\c52a026c13dda2c7ceaee99919e471a4f4e0885b
 |
