@@ -5,8 +5,6 @@ z
 Japp/src/main/java/com/example/userdetailmappingtask/utils/NetworkUtil.java,7\0\707888e517b7c64121abd1486fdb28af98cb7677
 v
 Fapp/src/main/java/com/example/userdetailmappingtask/MainViewModel.java,2\c\2ce6c6d0e25bc6bf722a9d5ece04af3ede640f19
-R
-"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 ‚
 Rapp/src/main/java/com/example/userdetailmappingtask/constant/EmployeeConstant.java,c\5\c52a026c13dda2c7ceaee99919e471a4f4e0885b
 |
@@ -19,8 +17,6 @@ u
 Eapp/src/main/java/com/example/userdetailmappingtask/MainActivity.java,8\a\8a565babbd99d121a0c690bdcd97da9d9bdc1a41
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-S
-#app/src/debug/res/values/dimens.xml,7\b\7b00e4c89c1e06797145c344c768aea16f50c31c
 \
 ,app/src/debug/res/values/google_maps_api.xml,c\7\c7ab7bac149c0f83f3f9611a0eb8fdce1aaf3aee
 ƒ

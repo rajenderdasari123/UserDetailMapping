@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.userdetailmappingtask.R;
+import com.example.userdetailmappingtask.databinding.FragmentMapsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,7 +21,9 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import static com.example.userdetailmappingtask.constant.EmployeeConstant.TAG_ADDRESS;
 
@@ -28,6 +31,8 @@ public class MapsFragment extends Fragment {
 
   private String mAddress;
   private GoogleMap mGoogleMap;
+  private MapsViewModel mMapsViewModel;
+  private FragmentMapsBinding mFragmentMapsBinding;
 
   private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -52,7 +57,11 @@ public class MapsFragment extends Fragment {
   public View onCreateView(@NonNull LayoutInflater inflater,
                            @Nullable ViewGroup container,
                            @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_maps, container, false);
+    mFragmentMapsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_maps,
+        container, false);
+    mMapsViewModel = ViewModelProviders.of(this).get(MapsViewModel.class);
+    mFragmentMapsBinding.setMapsViewModel(mMapsViewModel);
+    return mFragmentMapsBinding.getRoot();
   }
 
   @Override
@@ -65,6 +74,7 @@ public class MapsFragment extends Fragment {
     }
     if (requireArguments().getString(TAG_ADDRESS) != null) {
       mAddress = requireArguments().getString(TAG_ADDRESS);
+      mFragmentMapsBinding.tvAddressName.tvAddressHint.setText(mAddress);
     }
   }
 

@@ -66,11 +66,11 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
   }
 
   private String getAddress(Unassigned unassigned) {
-    return unassigned.getAddress_Line_1() +
-        unassigned.getAddress_Line_2() +
-        unassigned.getLand_Mark() +
-        unassigned.getCity() +
-        unassigned.getState() +
+    return unassigned.getAddress_Line_1() +","+
+        unassigned.getAddress_Line_2() +","+
+        unassigned.getLand_Mark() +","+
+        unassigned.getCity() +","+
+        unassigned.getState() +","+
         unassigned.getPIN();
   }
 
